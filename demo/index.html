@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>emoj11y-element demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../emoj11y-element.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic emoj11y-element demo</h3>
+      <demo-snippet>
+        <template>
+          <emoj11y-element shortname="smile"></emoj11y-element>
+        </template>
+      </demo-snippet>
+      <demo-snippet>
+        <template>
+          <emoj11y-element shortname="dizzy_face" label="Dizzy!"></emoj11y-element>
+        </template>
+      </demo-snippet>
+      <demo-snippet>
+        <template>
+          <emoj11y-element style="font-size: 50px" shortname="dancer" skin-tone="4"></emoj11y-element>
+        </template>
+      </demo-snippet>
+      <demo-snippet>
+        <template>
+          Failing:
+          <br>
+      
+          <emoj11y-element shortname="dancer" skin-tone="24"></emoj11y-element>
+          <emoj11y-element shortname="danceb"></emoj11y-element>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

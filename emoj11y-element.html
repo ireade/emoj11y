@@ -1,0 +1,138 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<script src="../emojione/lib/js/emojione.min.js"></script>
+
+<dom-module id="emoj11y-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+        box-sizing: border-box;
+      }
+
+      span {
+        position: relative;
+        cursor: default;
+      }
+
+      span:hover::before,
+      span:focus::before {
+        content: '';
+
+        width: 12px; 
+        height: 7px; 
+
+        background: url(tooltip-arrow.png) no-repeat;
+        background-size: 100% auto;
+
+        position: absolute;
+        top: -0.7em;
+        left: 0;
+        z-index: 2;
+      }
+
+      span:hover::after,
+      span:focus::after {
+        content: attr(aria-label);
+
+        background: rgb(50,50,50);
+        border-radius: 3px;
+        box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.3);
+
+        position: absolute;
+        top: -2.5em;
+        left: -0.2em;
+        z-index: 2;
+        padding: 5px 10px;
+
+        font-family: -apple-system, 
+                      BlinkMacSystemFont, 
+                      "Segoe UI", 
+                      Roboto, 
+                      Oxygen-Sans, 
+                      Ubuntu, 
+                      Cantarell, 
+                      "Helvetica Neue", 
+                      sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: #fff;
+      }
+
+      span:hover::after,
+      span:focus::after,
+      span:hover::before,
+      span:focus::before {
+        animation-name: tooltip;
+        animation-duration: 0.3s;
+        animation-fill-mode: both;
+        animation-timing-function: ease-in-out;
+      }
+
+      @keyframes tooltip {
+        from {
+          opacity: 0;
+          transform: translateY(1em);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+    <span role="img" aria-label$="[[label]]" tabindex="0">[[emoji]]</span>
+  </template>
+
+  <script>
+    /**
+     * `emoj11y-element`
+     * Accessible emoji component
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class Emoj11yElement extends Polymer.Element {
+      static get is() { return 'emoj11y-element'; }
+
+      static get properties() {
+        return {
+          shortname: {
+            type: String
+          },
+          skinTone: {
+            type: String
+          },
+          label: {
+            type: String
+          },
+          emoji: {
+            type: String,
+            value: ''
+          }
+        };
+      }
+
+      constructor() {
+        super();
+      }
+
+      ready() {
+
+        super.ready();
+
+        const shortname = `:${this.shortname}:`;
+        const skinTone = this.skinTone || 0;
+        const shortnameWithSkinTone = `:${this.shortname}_tone${skinTone}:`;
+
+        let unicode = emojione.shortnameToUnicode(shortnameWithSkinTone);
+        if ( unicode.indexOf(':') == 0 ) unicode = emojione.shortnameToUnicode(shortname);
+        if ( unicode.indexOf(':') == 0 ) unicode = emojione.shortnameToUnicode(':question:');
+
+        this.emoji = unicode;
+        this.label = this.label || this.shortname;
+      }
+    }
+
+    window.customElements.define(Emoj11yElement.is, Emoj11yElement);
+  </script>
+</dom-module>
