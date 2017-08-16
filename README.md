@@ -1,6 +1,8 @@
 # \<emoj11y-element\>
 
-Accessible emoji component
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/ireade/emoj11y)
+
+An accessible emoji component
 
 ## Demo
 
