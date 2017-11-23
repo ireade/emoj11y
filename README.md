@@ -56,13 +56,11 @@ bower install emoj11y-element
 
 ### Options
 
-These are the available options you can specify
-
 Option | Description
 -------|------------
 `shortname` (required) | The shortname for the element. Must be a valid [emojione shortname](https://www.emojione.com/emoji/v3)
 `label` | An alternate label for the emoji. Defaults to the shortname
-`skinTone` | A number from 1-6 representing the skin tone of the emoji (if applicable)
+`skin-tone` | A number from 1-6 representing the skin tone of the emoji (if applicable)
 
 ## Contributing
 
