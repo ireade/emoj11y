@@ -16,15 +16,13 @@
       span:hover::before,
       span:focus::before {
         content: '';
-
-        width: 12px; 
-        height: 7px; 
-
-        background: url(tooltip-arrow.png) no-repeat;
-        background-size: 100% auto;
-
+        width: 0; 
+        height: 0; 
+        border-left: 0.2em solid transparent;
+        border-right: 0.2em solid transparent;
+        border-top: 0.2em solid rgb(50,50,50);
         position: absolute;
-        top: -0.7em;
+        top: -0.225em;
         left: 0;
         z-index: 2;
       }
@@ -58,11 +56,18 @@
       }
 
       span:hover::after,
-      span:focus::after,
-      span:hover::before,
-      span:focus::before {
+      span:focus::after {
         animation-name: tooltip;
         animation-duration: 0.3s;
+        animation-fill-mode: both;
+        animation-timing-function: ease-in-out;
+      }
+
+      span:hover::before,
+      span:focus::before {
+        animation-name: tooltipArrow;
+        animation-delay: 0.3s;
+        animation-duration: 0.2s;
         animation-fill-mode: both;
         animation-timing-function: ease-in-out;
       }
@@ -71,6 +76,17 @@
         from {
           opacity: 0;
           transform: translateY(1em);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @keyframes tooltipArrow {
+        from {
+          opacity: 0;
+          transform: translateY(-1em);
         }
         to {
           opacity: 1;
