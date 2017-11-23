@@ -1,5 +1,5 @@
 {
-  "name": "emoj11y-element",
+  "name": "emoj11y",
   "description": "Accessible emoji component",
   "main": "emoj11y-element.html",
   "dependencies": {

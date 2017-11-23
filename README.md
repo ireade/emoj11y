@@ -34,7 +34,7 @@ An accessible emoji component
 
 ```
 mkdir emoj11y-demo && cd emoj11y-demo
-bower install emoj11y-element
+bower install emoj11y
 ```
 
 2. Include the element on a page
