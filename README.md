@@ -39,7 +39,7 @@ bower install emoj11y
 
 2. Include the element on a page
 
-```
+```hmtl
 <!doctype html>
 <html>
   <head>

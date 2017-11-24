@@ -4,7 +4,7 @@
   <template>
     <style>
       :host {
-        display: block;
+        display: inline-block;
         box-sizing: border-box;
       }
 
@@ -22,7 +22,7 @@
         border-right: 12px solid transparent;
         border-top: 12px solid rgb(50,50,50);
         position: absolute;
-        top: -14px;
+        top: -1em;
         left: 0;
         z-index: 2;
       }
@@ -30,17 +30,15 @@
       span:hover::after,
       span:focus::after {
         content: attr(aria-label);
-
         background: rgb(50,50,50);
         border-radius: 3px;
         box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.3);
-
         position: absolute;
-        top: -2.5em;
+        top: -3em;
         left: -0.2em;
         z-index: 2;
         padding: 5px 10px;
-
+        white-space: nowrap;
         font-family: -apple-system, 
                       BlinkMacSystemFont, 
                       "Segoe UI", 
